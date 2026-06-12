@@ -1,0 +1,247 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ShopStart – Your Online Store, Made Simple</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .orange { color: #EA580C; }
+    .orange-bg { background: #EA580C; }
+    .card-hover { transition: transform 0.2s, box-shadow 0.2s; }
+    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(234,88,12,0.12); }
+  </style>
+</head>
+<body class="bg-white text-gray-900">
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 w-full z-50 bg-white border-b border-gray-100 shadow-sm">
+    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-lg orange-bg flex items-center justify-center">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+        </div>
+        <span class="font-bold text-lg">ShopStart</span>
+      </div>
+      <div class="hidden md:flex items-center gap-8 text-sm text-gray-600">
+        <a href="#" class="hover:text-orange-600 transition-colors">Shop</a>
+        <a href="#" class="hover:text-orange-600 transition-colors">Categories</a>
+        <a href="#" class="hover:text-orange-600 transition-colors">Deals</a>
+        <a href="#" class="hover:text-orange-600 transition-colors">About</a>
+      </div>
+      <div class="flex items-center gap-4">
+        <a href="#" class="text-gray-600 hover:text-orange-600">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+        </a>
+        <a href="#" class="relative text-gray-600 hover:text-orange-600">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <span class="absolute -top-2 -right-2 w-4 h-4 orange-bg text-white text-xs rounded-full flex items-center justify-center">3</span>
+        </a>
+        <button class="orange-bg text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:opacity-90 transition">Sign In</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Banner -->
+  <section class="pt-16 relative overflow-hidden" style="background: linear-gradient(135deg, #FFF7ED 0%, #FFEDD5 100%)">
+    <div class="max-w-7xl mx-auto px-6 py-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <span class="inline-flex items-center gap-2 orange-bg text-white text-xs font-bold px-3 py-1.5 rounded-full mb-6 uppercase tracking-wider">
+          🔥 Summer Sale — Up to 50% Off
+        </span>
+        <h1 class="text-5xl lg:text-6xl font-extrabold leading-tight mb-6">
+          Shop What<br/>You <span class="orange">Love</span>,<br/>Delivered Fast
+        </h1>
+        <p class="text-lg text-gray-600 leading-relaxed mb-8 max-w-lg">
+          Thousands of products across fashion, electronics, home, and more. Free delivery on orders over ₹999.
+        </p>
+        <div class="flex flex-wrap gap-4 mb-8">
+          <button class="orange-bg text-white font-semibold px-8 py-4 rounded-xl hover:opacity-90 transition text-sm">Shop Now</button>
+          <button class="text-orange-600 font-semibold px-8 py-4 rounded-xl border border-orange-200 hover:bg-orange-50 transition text-sm">View Deals</button>
+        </div>
+        <div class="flex flex-wrap gap-4 text-sm text-gray-500">
+          <span class="flex items-center gap-1.5">✅ Free returns</span>
+          <span class="flex items-center gap-1.5">✅ Secure checkout</span>
+          <span class="flex items-center gap-1.5">✅ Next-day delivery</span>
+        </div>
+      </div>
+      <div class="relative flex items-center justify-center">
+        <div class="w-72 h-72 rounded-full" style="background: radial-gradient(circle, #FED7AA, #FFEDD5)"></div>
+        <div class="absolute inset-0 flex items-center justify-center">
+          <div class="grid grid-cols-2 gap-4">
+            <div class="bg-white rounded-2xl p-4 shadow-lg border border-orange-100 text-center">
+              <div class="text-3xl mb-2">👟</div>
+              <p class="text-xs font-semibold">Footwear</p>
+              <p class="text-orange-500 text-xs">-30%</p>
+            </div>
+            <div class="bg-white rounded-2xl p-4 shadow-lg border border-orange-100 text-center">
+              <div class="text-3xl mb-2">📱</div>
+              <p class="text-xs font-semibold">Tech</p>
+              <p class="text-orange-500 text-xs">-50%</p>
+            </div>
+            <div class="bg-white rounded-2xl p-4 shadow-lg border border-orange-100 text-center">
+              <div class="text-3xl mb-2">👗</div>
+              <p class="text-xs font-semibold">Fashion</p>
+              <p class="text-orange-500 text-xs">-40%</p>
+            </div>
+            <div class="bg-white rounded-2xl p-4 shadow-lg border border-orange-100 text-center">
+              <div class="text-3xl mb-2">🏠</div>
+              <p class="text-xs font-semibold">Home</p>
+              <p class="text-orange-500 text-xs">-25%</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl font-extrabold mb-8">Shop by Category</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-4">
+        <div class="flex flex-col items-center p-4 rounded-2xl hover:bg-orange-50 transition cursor-pointer border border-gray-100 card-hover">
+          <div class="text-3xl mb-2">👗</div><p class="text-sm font-medium text-gray-700">Fashion</p>
+        </div>
+        <div class="flex flex-col items-center p-4 rounded-2xl hover:bg-orange-50 transition cursor-pointer border border-gray-100 card-hover">
+          <div class="text-3xl mb-2">📱</div><p class="text-sm font-medium text-gray-700">Electronics</p>
+        </div>
+        <div class="flex flex-col items-center p-4 rounded-2xl hover:bg-orange-50 transition cursor-pointer border border-gray-100 card-hover">
+          <div class="text-3xl mb-2">🏠</div><p class="text-sm font-medium text-gray-700">Home</p>
+        </div>
+        <div class="flex flex-col items-center p-4 rounded-2xl hover:bg-orange-50 transition cursor-pointer border border-gray-100 card-hover">
+          <div class="text-3xl mb-2">💄</div><p class="text-sm font-medium text-gray-700">Beauty</p>
+        </div>
+        <div class="flex flex-col items-center p-4 rounded-2xl hover:bg-orange-50 transition cursor-pointer border border-gray-100 card-hover">
+          <div class="text-3xl mb-2">⚽</div><p class="text-sm font-medium text-gray-700">Sports</p>
+        </div>
+        <div class="flex flex-col items-center p-4 rounded-2xl hover:bg-orange-50 transition cursor-pointer border border-gray-100 card-hover">
+          <div class="text-3xl mb-2">🎮</div><p class="text-sm font-medium text-gray-700">Gaming</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section class="py-16 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex items-center justify-between mb-10">
+        <h2 class="text-3xl font-extrabold">Trending Now 🔥</h2>
+        <a href="#" class="text-orange-600 text-sm font-semibold hover:opacity-70 transition">View all →</a>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <!-- Product 1 -->
+        <div class="card-hover bg-white rounded-2xl overflow-hidden border border-gray-100">
+          <div class="h-48 flex items-center justify-center text-5xl" style="background: linear-gradient(135deg, #FEF3C7, #FDE68A)">👟</div>
+          <div class="p-4">
+            <p class="text-xs text-gray-400 mb-1">Nike</p>
+            <p class="font-semibold text-sm mb-2">Air Max 2025</p>
+            <div class="flex items-center justify-between">
+              <div><span class="font-bold text-gray-900">₹7,499</span><span class="text-gray-400 text-xs line-through ml-2">₹10,999</span></div>
+              <button class="orange-bg text-white text-xs px-3 py-1.5 rounded-lg hover:opacity-90 transition">Add</button>
+            </div>
+          </div>
+        </div>
+        <!-- Product 2 -->
+        <div class="card-hover bg-white rounded-2xl overflow-hidden border border-gray-100">
+          <div class="h-48 flex items-center justify-center text-5xl" style="background: linear-gradient(135deg, #DBEAFE, #BFDBFE)">📱</div>
+          <div class="p-4">
+            <p class="text-xs text-gray-400 mb-1">Apple</p>
+            <p class="font-semibold text-sm mb-2">iPhone 16 Case</p>
+            <div class="flex items-center justify-between">
+              <div><span class="font-bold text-gray-900">₹1,999</span><span class="text-gray-400 text-xs line-through ml-2">₹3,299</span></div>
+              <button class="orange-bg text-white text-xs px-3 py-1.5 rounded-lg hover:opacity-90 transition">Add</button>
+            </div>
+          </div>
+        </div>
+        <!-- Product 3 -->
+        <div class="card-hover bg-white rounded-2xl overflow-hidden border border-gray-100">
+          <div class="h-48 flex items-center justify-center text-5xl" style="background: linear-gradient(135deg, #FCE7F3, #FBCFE8)">💄</div>
+          <div class="p-4">
+            <p class="text-xs text-gray-400 mb-1">Charlotte</p>
+            <p class="font-semibold text-sm mb-2">Glow Serum Kit</p>
+            <div class="flex items-center justify-between">
+              <div><span class="font-bold text-gray-900">₹3,799</span><span class="text-gray-400 text-xs line-through ml-2">₹5,999</span></div>
+              <button class="orange-bg text-white text-xs px-3 py-1.5 rounded-lg hover:opacity-90 transition">Add</button>
+            </div>
+          </div>
+        </div>
+        <!-- Product 4 -->
+        <div class="card-hover bg-white rounded-2xl overflow-hidden border border-gray-100">
+          <div class="h-48 flex items-center justify-center text-5xl" style="background: linear-gradient(135deg, #D1FAE5, #A7F3D0)">⚽</div>
+          <div class="p-4">
+            <p class="text-xs text-gray-400 mb-1">Adidas</p>
+            <p class="font-semibold text-sm mb-2">Pro Football</p>
+            <div class="flex items-center justify-between">
+              <div><span class="font-bold text-gray-900">₹2,699</span><span class="text-gray-400 text-xs line-through ml-2">₹4,599</span></div>
+              <button class="orange-bg text-white text-xs px-3 py-1.5 rounded-lg hover:opacity-90 transition">Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-3xl font-extrabold text-center mb-10">Loved by Thousands of Shoppers ❤️</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="p-6 rounded-2xl bg-orange-50 border border-orange-100 card-hover">
+          <p class="text-yellow-400 mb-3">★★★★★</p>
+          <p class="text-gray-700 text-sm leading-relaxed mb-4">"Ordered on Monday, arrived Tuesday. The quality is amazing and the price was unbeatable. Will definitely order again!"</p>
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full orange-bg text-white flex items-center justify-center text-sm font-bold">AP</div>
+            <div><p class="font-semibold text-sm">Amy Parker</p><p class="text-xs text-gray-400">Verified Buyer</p></div>
+          </div>
+        </div>
+        <div class="p-6 rounded-2xl bg-white border border-gray-100 shadow-sm card-hover">
+          <p class="text-yellow-400 mb-3">★★★★★</p>
+          <p class="text-gray-700 text-sm leading-relaxed mb-4">"Best online shopping experience I've had. Easy to navigate, secure checkout, and the WhatsApp support team is brilliant."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-blue-500 text-white flex items-center justify-center text-sm font-bold">JO</div>
+            <div><p class="font-semibold text-sm">James O'Brien</p><p class="text-xs text-gray-400">Verified Buyer</p></div>
+          </div>
+        </div>
+        <div class="p-6 rounded-2xl bg-white border border-gray-100 shadow-sm card-hover">
+          <p class="text-yellow-400 mb-3">★★★★★</p>
+          <p class="text-gray-700 text-sm leading-relaxed mb-4">"Massive sale on trainers — saved ₹3,300! Free returns policy sealed the deal. ShopStart is now my go-to for everything."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-purple-500 text-white flex items-center justify-center text-sm font-bold">PN</div>
+            <div><p class="font-semibold text-sm">Priti Nair</p><p class="text-xs text-gray-400">Verified Buyer</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WhatsApp CTA -->
+  <section class="py-16 bg-white">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <div class="bg-green-50 border border-green-100 rounded-2xl p-10">
+        <div class="text-5xl mb-4">💬</div>
+        <h3 class="text-2xl font-extrabold mb-3">Need Help? Chat on WhatsApp</h3>
+        <p class="text-gray-500 mb-6">Our team responds within minutes. Track orders, ask questions, or get product advice instantly.</p>
+        <button class="bg-green-500 text-white font-semibold px-8 py-4 rounded-xl hover:bg-green-600 transition text-sm">
+          WhatsApp Us Now →
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 py-10">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <div class="w-7 h-7 rounded-lg orange-bg"></div>
+        <span class="text-white font-bold">ShopStart</span>
+      </div>
+      <p class="text-sm">© 2025 ShopStart Ltd. All rights reserved.</p>
+      <div class="flex gap-5 text-sm"><a href="#" class="hover:text-white transition">Privacy</a><a href="#" class="hover:text-white transition">Returns</a><a href="#" class="hover:text-white transition">Contact</a></div>
+    </div>
+  </footer>
+
+</body>
+</html>

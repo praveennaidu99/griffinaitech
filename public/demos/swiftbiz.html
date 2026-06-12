@@ -1,0 +1,270 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SwiftBiz – Growing Businesses, Faster</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .green { color: #059669; }
+    .green-bg { background: #059669; }
+    .card-hover { transition: transform 0.2s, box-shadow 0.2s; }
+    .card-hover:hover { transform: translateY(-4px); box-shadow: 0 12px 40px rgba(5,150,105,0.12); }
+  </style>
+</head>
+<body class="bg-white text-gray-900">
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 w-full z-50 bg-white border-b border-gray-100 shadow-sm">
+    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-lg green-bg flex items-center justify-center">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <span class="font-bold text-lg">SwiftBiz</span>
+      </div>
+      <div class="hidden md:flex items-center gap-8 text-sm text-gray-600">
+        <a href="#" class="hover:text-emerald-600 transition-colors">Services</a>
+        <a href="#" class="hover:text-emerald-600 transition-colors">About</a>
+        <a href="#" class="hover:text-emerald-600 transition-colors">Portfolio</a>
+        <a href="#" class="hover:text-emerald-600 transition-colors">Blog</a>
+      </div>
+      <div class="flex items-center gap-3">
+        <a href="#contact" class="text-sm text-emerald-600 font-semibold border border-emerald-200 px-5 py-2 rounded-lg hover:bg-emerald-50 transition">Get a Quote</a>
+        <button class="green-bg text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:opacity-90 transition">Contact Us</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="pt-32 pb-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <span class="inline-flex items-center gap-2 bg-emerald-50 text-emerald-700 text-xs font-semibold px-3 py-1.5 rounded-full mb-6">
+          ⚡ Fast. Reliable. Professional.
+        </span>
+        <h1 class="text-5xl lg:text-6xl font-extrabold leading-tight mb-6 text-gray-900">
+          Grow Your Business<br/><span style="color:#059669">Smarter &</span><br/>Faster
+        </h1>
+        <p class="text-lg text-gray-500 leading-relaxed mb-8 max-w-lg">
+          Professional websites, digital marketing, and business solutions tailored to help small and medium businesses thrive in the digital age.
+        </p>
+        <div class="flex flex-wrap gap-4 mb-10">
+          <button class="green-bg text-white font-semibold px-8 py-4 rounded-xl hover:opacity-90 transition text-sm">Start Today</button>
+          <button class="text-gray-700 font-semibold px-8 py-4 rounded-xl border border-gray-200 hover:bg-gray-50 transition text-sm">See Our Work</button>
+        </div>
+        <!-- Stats -->
+        <div class="flex gap-8">
+          <div>
+            <p class="text-2xl font-bold text-gray-900">500+</p>
+            <p class="text-xs text-gray-500">Happy Clients</p>
+          </div>
+          <div class="border-l border-gray-100 pl-8">
+            <p class="text-2xl font-bold text-gray-900">8 Years</p>
+            <p class="text-xs text-gray-500">In Business</p>
+          </div>
+          <div class="border-l border-gray-100 pl-8">
+            <p class="text-2xl font-bold text-gray-900">4.9★</p>
+            <p class="text-xs text-gray-500">Google Rating</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Image placeholder -->
+      <div class="relative">
+        <div class="rounded-2xl overflow-hidden" style="background: linear-gradient(135deg, #ECFDF5 0%, #D1FAE5 100%); padding: 2rem; min-height: 400px; display: flex; align-items: center; justify-content: center;">
+          <div class="w-full max-w-sm bg-white rounded-xl shadow-lg p-6 border border-gray-100">
+            <div class="flex items-center gap-3 mb-5">
+              <div class="w-10 h-10 rounded-full green-bg"></div>
+              <div>
+                <p class="font-semibold text-sm">SwiftBiz Team</p>
+                <p class="text-xs text-gray-400">Ready to help</p>
+              </div>
+              <span class="ml-auto text-xs bg-green-100 text-green-700 px-2 py-1 rounded-full">● Online</span>
+            </div>
+            <div class="space-y-3 mb-5">
+              <div class="bg-emerald-50 rounded-xl p-3 text-sm text-gray-700">Hi! How can we help grow your business today? 👋</div>
+              <div class="bg-gray-100 rounded-xl p-3 text-sm text-gray-700 ml-8">I need a new website for my restaurant</div>
+              <div class="bg-emerald-50 rounded-xl p-3 text-sm text-gray-700">Great choice! We can have your site live in 7 days. Let's start with a free consultation!</div>
+            </div>
+            <input type="text" placeholder="Type your message..." class="w-full border border-gray-200 rounded-lg px-4 py-2.5 text-sm focus:outline-none focus:border-emerald-400" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="py-24 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <span class="text-emerald-600 text-sm font-semibold uppercase tracking-wider">What We Do</span>
+        <h2 class="text-4xl font-extrabold mt-3 mb-4">Services Built for Business Growth</h2>
+        <p class="text-gray-500 max-w-xl mx-auto">Everything you need to establish and grow your digital presence — all under one roof.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="card-hover bg-white rounded-2xl p-6 border border-gray-100">
+          <div class="w-12 h-12 rounded-xl bg-emerald-50 flex items-center justify-center mb-4">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#059669" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18"/><path d="M9 21V9"/></svg>
+          </div>
+          <h3 class="font-bold mb-2">Website Design</h3>
+          <p class="text-gray-500 text-sm">Mobile-first, fast-loading websites that convert visitors into customers.</p>
+        </div>
+        <div class="card-hover bg-white rounded-2xl p-6 border border-gray-100">
+          <div class="w-12 h-12 rounded-xl bg-blue-50 flex items-center justify-center mb-4">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563EB" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/></svg>
+          </div>
+          <h3 class="font-bold mb-2">SEO Optimisation</h3>
+          <p class="text-gray-500 text-sm">Rank higher on Google and drive organic traffic to your business.</p>
+        </div>
+        <div class="card-hover bg-white rounded-2xl p-6 border border-gray-100">
+          <div class="w-12 h-12 rounded-xl bg-orange-50 flex items-center justify-center mb-4">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#EA580C" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.6 19.79 19.79 0 012 1.01 2 2 0 014 .83h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+          </div>
+          <h3 class="font-bold mb-2">WhatsApp Marketing</h3>
+          <p class="text-gray-500 text-sm">Direct customer engagement via automated WhatsApp campaigns.</p>
+        </div>
+        <div class="card-hover bg-white rounded-2xl p-6 border border-gray-100">
+          <div class="w-12 h-12 rounded-xl bg-purple-50 flex items-center justify-center mb-4">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#7C3AED" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <h3 class="font-bold mb-2">Social Media</h3>
+          <p class="text-gray-500 text-sm">Consistent brand presence across all major social platforms.</p>
+        </div>
+        <div class="card-hover bg-white rounded-2xl p-6 border border-gray-100">
+          <div class="w-12 h-12 rounded-xl bg-yellow-50 flex items-center justify-center mb-4">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#D97706" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h3 class="font-bold mb-2">Google My Business</h3>
+          <p class="text-gray-500 text-sm">Optimise your local listing and attract nearby customers.</p>
+        </div>
+        <div class="card-hover bg-white rounded-2xl p-6 border border-gray-100">
+          <div class="w-12 h-12 rounded-xl bg-green-50 flex items-center justify-center mb-4">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#16A34A" stroke-width="2"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+          </div>
+          <h3 class="font-bold mb-2">Analytics & Reports</h3>
+          <p class="text-gray-500 text-sm">Clear monthly reports showing your growth and ROI.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="text-4xl font-extrabold text-center mb-12">What Our Clients Say</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="p-6 rounded-2xl bg-gray-50 border border-gray-100">
+          <p class="text-yellow-400 text-lg mb-3">★★★★★</p>
+          <p class="text-gray-700 text-sm leading-relaxed mb-4">"SwiftBiz transformed our online presence. Bookings increased by 60% in the first month after launch!"</p>
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full green-bg text-white flex items-center justify-center text-sm font-bold">RA</div>
+            <div><p class="font-semibold text-sm">Raj Agarwal</p><p class="text-xs text-gray-400">Spice Garden Restaurant</p></div>
+          </div>
+        </div>
+        <div class="p-6 rounded-2xl bg-gray-50 border border-gray-100">
+          <p class="text-yellow-400 text-lg mb-3">★★★★★</p>
+          <p class="text-gray-700 text-sm leading-relaxed mb-4">"Professional, fast, and affordable. The team delivered exactly what we needed and the SEO results have been fantastic."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-blue-500 text-white flex items-center justify-center text-sm font-bold">SK</div>
+            <div><p class="font-semibold text-sm">Sarah Khan</p><p class="text-xs text-gray-400">SK Accountancy</p></div>
+          </div>
+        </div>
+        <div class="p-6 rounded-2xl bg-gray-50 border border-gray-100">
+          <p class="text-yellow-400 text-lg mb-3">★★★★★</p>
+          <p class="text-gray-700 text-sm leading-relaxed mb-4">"Our Google ranking went from page 5 to page 1 in just 3 months. Incredible results and great customer service."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-purple-500 text-white flex items-center justify-center text-sm font-bold">TM</div>
+            <div><p class="font-semibold text-sm">Tom Murphy</p><p class="text-xs text-gray-400">Murphy's Plumbing</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="py-24 bg-gray-50">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <span class="text-emerald-600 text-sm font-semibold uppercase tracking-wider">Pricing</span>
+        <h2 class="text-4xl font-extrabold mt-3 mb-4">Clear, Affordable Pricing</h2>
+        <p class="text-gray-500 max-w-xl mx-auto">No hidden fees. Pick the package that suits your business and grow from there.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+        <div class="bg-white rounded-2xl border border-gray-200 p-8">
+          <h3 class="font-bold text-lg mb-1">Starter</h3>
+          <p class="text-gray-500 text-sm mb-5">Perfect for new businesses</p>
+          <p class="text-4xl font-extrabold mb-1">₹41,999<span class="text-base font-normal text-gray-400"> one-off</span></p>
+          <p class="text-xs text-gray-400 mb-6">+ ₹1,999/mo hosting</p>
+          <ul class="space-y-3 text-sm text-gray-600 mb-8">
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> 5-page website</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Mobile responsive</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Contact form</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Google Maps</li>
+          </ul>
+          <button class="w-full border border-emerald-600 text-emerald-600 font-semibold py-3 rounded-xl hover:bg-emerald-50 transition">Get Started</button>
+        </div>
+        <div class="bg-white rounded-2xl border-2 border-emerald-500 p-8 relative shadow-xl">
+          <span class="absolute -top-4 left-1/2 -translate-x-1/2 green-bg text-white text-xs font-bold px-4 py-1.5 rounded-full">Most Popular</span>
+          <h3 class="font-bold text-lg mb-1">Business</h3>
+          <p class="text-gray-500 text-sm mb-5">For growing SMEs</p>
+          <p class="text-4xl font-extrabold mb-1">₹84,999<span class="text-base font-normal text-gray-400"> one-off</span></p>
+          <p class="text-xs text-gray-400 mb-6">+ ₹3,799/mo support</p>
+          <ul class="space-y-3 text-sm text-gray-600 mb-8">
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> 10-page website</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> SEO setup</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> WhatsApp integration</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Monthly updates</li>
+          </ul>
+          <button class="w-full green-bg text-white font-semibold py-3 rounded-xl hover:opacity-90 transition">Start Today</button>
+        </div>
+        <div class="bg-white rounded-2xl border border-gray-200 p-8">
+          <h3 class="font-bold text-lg mb-1">Premium</h3>
+          <p class="text-gray-500 text-sm mb-5">Full digital solution</p>
+          <p class="text-4xl font-extrabold mb-1">₹1,69,999<span class="text-base font-normal text-gray-400"> one-off</span></p>
+          <p class="text-xs text-gray-400 mb-6">+ ₹7,999/mo full management</p>
+          <ul class="space-y-3 text-sm text-gray-600 mb-8">
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Unlimited pages</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> SEO + Social media</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Google Ads management</li>
+            <li class="flex items-center gap-2"><span class="text-green-500">✓</span> Analytics dashboard</li>
+          </ul>
+          <button class="w-full border border-gray-300 text-gray-700 font-semibold py-3 rounded-xl hover:bg-gray-50 transition">Enquire Now</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-24 bg-emerald-600">
+    <div class="max-w-3xl mx-auto px-6 text-center text-white">
+      <h2 class="text-4xl font-extrabold mb-4">Ready to Grow?</h2>
+      <p class="text-emerald-100 mb-10">Get a free consultation and quote. No obligation, no hard sell.</p>
+      <div class="bg-white rounded-2xl p-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+          <input type="text" placeholder="Your Name" class="border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-emerald-400 text-gray-900" />
+          <input type="email" placeholder="Email Address" class="border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-emerald-400 text-gray-900" />
+        </div>
+        <input type="tel" placeholder="Phone Number" class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-emerald-400 mb-4 text-gray-900" />
+        <textarea placeholder="Tell us about your business..." rows="3" class="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-emerald-400 mb-4 text-gray-900 resize-none"></textarea>
+        <button class="w-full green-bg text-white font-bold py-3.5 rounded-xl hover:opacity-90 transition">Send Message</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-900 text-gray-400 py-10">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2">
+        <div class="w-7 h-7 rounded-lg green-bg"></div>
+        <span class="text-white font-bold">SwiftBiz</span>
+      </div>
+      <p class="text-sm">© 2025 SwiftBiz Digital. All rights reserved.</p>
+      <div class="flex gap-5 text-sm"><a href="#" class="hover:text-white transition">Privacy</a><a href="#" class="hover:text-white transition">Terms</a></div>
+    </div>
+  </footer>
+
+</body>
+</html>

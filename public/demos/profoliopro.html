@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ProfolioPro – Creative Agency & Portfolio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Inter', sans-serif; background: #0F172A; color: #fff; }
+    .syne { font-family: 'Syne', sans-serif; }
+    .purple { color: #7C3AED; }
+    .purple-bg { background: #7C3AED; }
+    .card-hover { transition: transform 0.3s ease; }
+    .card-hover:hover { transform: translateY(-6px); }
+    .gradient-text { background: linear-gradient(135deg, #7C3AED, #C084FC); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="fixed top-0 w-full z-50 bg-[#0F172A]/90 backdrop-blur-md border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+      <span class="syne font-extrabold text-xl tracking-tight">Profolio<span class="purple">Pro</span></span>
+      <div class="hidden md:flex items-center gap-8 text-sm text-gray-400">
+        <a href="#" class="hover:text-white transition-colors">Work</a>
+        <a href="#" class="hover:text-white transition-colors">Services</a>
+        <a href="#" class="hover:text-white transition-colors">About</a>
+        <a href="#" class="hover:text-white transition-colors">Blog</a>
+      </div>
+      <button class="purple-bg text-white text-sm font-semibold px-5 py-2.5 rounded-lg hover:opacity-90 transition">Let's Talk →</button>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="min-h-screen flex items-center relative overflow-hidden pt-16">
+    <div class="absolute inset-0" style="background: radial-gradient(ellipse at top left, rgba(124,58,237,0.15) 0%, transparent 50%), radial-gradient(ellipse at bottom right, rgba(192,132,252,0.08) 0%, transparent 50%)"></div>
+    <div class="relative max-w-7xl mx-auto px-6 py-20">
+      <div class="max-w-4xl">
+        <span class="inline-flex items-center gap-2 border border-purple-500/30 text-purple-400 text-xs px-3 py-1.5 rounded-full mb-8">
+          <span class="w-1.5 h-1.5 rounded-full bg-purple-400 animate-pulse"></span>
+          Available for projects — 2025
+        </span>
+        <h1 class="syne text-6xl lg:text-8xl font-extrabold leading-[1.0] mb-8">
+          We Build<br/><span class="gradient-text">Digital</span><br/>Experiences
+        </h1>
+        <p class="text-gray-400 text-xl leading-relaxed max-w-2xl mb-12">
+          Award-winning creative agency crafting premium websites, brand identities, and digital campaigns that drive real results.
+        </p>
+        <div class="flex flex-wrap gap-5">
+          <button class="purple-bg text-white font-semibold px-8 py-4 rounded-xl hover:opacity-90 transition">View Our Work</button>
+          <button class="text-white font-semibold px-8 py-4 rounded-xl border border-white/20 hover:bg-white/5 transition">Start a Project</button>
+        </div>
+      </div>
+
+      <!-- Marquee-style client logos -->
+      <div class="mt-20 pt-10 border-t border-white/10">
+        <p class="text-gray-600 text-xs uppercase tracking-widest mb-6">Trusted by</p>
+        <div class="flex flex-wrap gap-8 items-center opacity-40">
+          <div class="bg-white/10 rounded-lg px-5 py-2.5 text-sm font-bold text-gray-300">ACME Corp</div>
+          <div class="bg-white/10 rounded-lg px-5 py-2.5 text-sm font-bold text-gray-300">Vertex AI</div>
+          <div class="bg-white/10 rounded-lg px-5 py-2.5 text-sm font-bold text-gray-300">NovaTech</div>
+          <div class="bg-white/10 rounded-lg px-5 py-2.5 text-sm font-bold text-gray-300">Stratum</div>
+          <div class="bg-white/10 rounded-lg px-5 py-2.5 text-sm font-bold text-gray-300">Prisma Labs</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Work Gallery -->
+  <section class="py-24">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="flex items-end justify-between mb-12">
+        <div>
+          <p class="purple text-sm uppercase tracking-wider mb-2">— Selected Work</p>
+          <h2 class="syne text-5xl font-extrabold">Our Projects</h2>
+        </div>
+        <a href="#" class="text-gray-400 hover:text-white text-sm transition">View all work →</a>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Project 1 -->
+        <div class="card-hover group relative rounded-2xl overflow-hidden cursor-pointer" style="height: 320px; background: linear-gradient(135deg, #1e1035, #2d1b69)">
+          <div class="absolute inset-0 flex flex-col justify-end p-8">
+            <span class="text-purple-400 text-xs uppercase tracking-wider mb-2">E-Commerce</span>
+            <h3 class="syne text-2xl font-bold mb-2">Luxe Fashion Brand</h3>
+            <p class="text-gray-400 text-sm">Premium online store with AI recommendations</p>
+          </div>
+          <div class="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition">
+            <div class="w-10 h-10 rounded-full bg-white/10 backdrop-blur flex items-center justify-center">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+            </div>
+          </div>
+          <!-- Decorative elements -->
+          <div class="absolute top-8 left-8 w-24 h-24 rounded-full purple-bg opacity-20 blur-2xl"></div>
+        </div>
+        <!-- Project 2 -->
+        <div class="card-hover group relative rounded-2xl overflow-hidden cursor-pointer" style="height: 320px; background: linear-gradient(135deg, #0c1a2e, #1a3050)">
+          <div class="absolute inset-0 flex flex-col justify-end p-8">
+            <span class="text-blue-400 text-xs uppercase tracking-wider mb-2">SaaS Platform</span>
+            <h3 class="syne text-2xl font-bold mb-2">FinTrack Dashboard</h3>
+            <p class="text-gray-400 text-sm">Real-time financial analytics platform</p>
+          </div>
+          <div class="absolute top-6 right-6 opacity-0 group-hover:opacity-100 transition">
+            <div class="w-10 h-10 rounded-full bg-white/10 backdrop-blur flex items-center justify-center">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M7 17L17 7M17 7H7M17 7v10"/></svg>
+            </div>
+          </div>
+          <div class="absolute top-8 right-8 w-24 h-24 rounded-full bg-blue-500 opacity-20 blur-2xl"></div>
+        </div>
+        <!-- Project 3 -->
+        <div class="card-hover group relative rounded-2xl overflow-hidden cursor-pointer" style="height: 220px; background: linear-gradient(135deg, #1a0a0a, #2d1515)">
+          <div class="absolute inset-0 flex flex-col justify-end p-6">
+            <span class="text-red-400 text-xs uppercase tracking-wider mb-2">Branding</span>
+            <h3 class="syne text-xl font-bold">Restaurant Rebrand</h3>
+          </div>
+          <div class="absolute top-4 right-4 w-16 h-16 rounded-full bg-red-500 opacity-20 blur-xl"></div>
+        </div>
+        <!-- Project 4 -->
+        <div class="card-hover group relative rounded-2xl overflow-hidden cursor-pointer" style="height: 220px; background: linear-gradient(135deg, #0a1a0a, #0f2d15)">
+          <div class="absolute inset-0 flex flex-col justify-end p-6">
+            <span class="text-green-400 text-xs uppercase tracking-wider mb-2">Corporate</span>
+            <h3 class="syne text-xl font-bold">Law Firm Website</h3>
+          </div>
+          <div class="absolute top-4 right-4 w-16 h-16 rounded-full bg-green-500 opacity-20 blur-xl"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services -->
+  <section class="py-24 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-6">
+      <div class="text-center mb-16">
+        <p class="purple text-sm uppercase tracking-wider mb-3">— What We Offer</p>
+        <h2 class="syne text-5xl font-extrabold">Our Services</h2>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10 rounded-2xl overflow-hidden">
+        <div class="bg-[#0F172A] p-8 hover:bg-[#1e293b] transition">
+          <div class="w-12 h-12 rounded-xl purple-bg opacity-80 flex items-center justify-center mb-5">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3 class="syne font-bold text-lg mb-3">Web Design & Dev</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Pixel-perfect, fast, and fully responsive websites built for conversion and growth.</p>
+        </div>
+        <div class="bg-[#0F172A] p-8 hover:bg-[#1e293b] transition">
+          <div class="w-12 h-12 rounded-xl bg-pink-600 opacity-80 flex items-center justify-center mb-5">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 013 3L7 19l-4 1 1-4L16.5 3.5z"/></svg>
+          </div>
+          <h3 class="syne font-bold text-lg mb-3">Brand Identity</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Logos, typography, colour systems, and brand guidelines that make you unforgettable.</p>
+        </div>
+        <div class="bg-[#0F172A] p-8 hover:bg-[#1e293b] transition">
+          <div class="w-12 h-12 rounded-xl bg-cyan-600 opacity-80 flex items-center justify-center mb-5">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="white"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg>
+          </div>
+          <h3 class="syne font-bold text-lg mb-3">Content & SEO</h3>
+          <p class="text-gray-500 text-sm leading-relaxed">Strategy-led content creation and technical SEO that drives organic traffic.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-20">
+    <div class="max-w-7xl mx-auto px-6">
+      <h2 class="syne text-4xl font-extrabold text-center mb-12">Client Love</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
+          <p class="text-purple-400 mb-3">★★★★★</p>
+          <p class="text-gray-300 text-sm leading-relaxed mb-5">"ProfolioPro delivered beyond our expectations. The new website doubled our inbound leads in the first month."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full purple-bg flex items-center justify-center text-xs font-bold">JH</div>
+            <div><p class="font-semibold text-sm">James Hartwell</p><p class="text-xs text-gray-500">CEO, Hartwell Capital</p></div>
+          </div>
+        </div>
+        <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
+          <p class="text-purple-400 mb-3">★★★★★</p>
+          <p class="text-gray-300 text-sm leading-relaxed mb-5">"Incredible design sense and flawless execution. Our brand has never looked this good. Highly recommend."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-pink-600 flex items-center justify-center text-xs font-bold">ML</div>
+            <div><p class="font-semibold text-sm">Maya Lopes</p><p class="text-xs text-gray-500">Founder, Studio ML</p></div>
+          </div>
+        </div>
+        <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
+          <p class="text-purple-400 mb-3">★★★★★</p>
+          <p class="text-gray-300 text-sm leading-relaxed mb-5">"Fast turnaround, transparent process, and a final product that genuinely impressed our entire board."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-full bg-cyan-600 flex items-center justify-center text-xs font-bold">AC</div>
+            <div><p class="font-semibold text-sm">Alex Chen</p><p class="text-xs text-gray-500">CTO, NextWave SaaS</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-24 text-center relative overflow-hidden">
+    <div class="absolute inset-0" style="background: radial-gradient(ellipse at center, rgba(124,58,237,0.12) 0%, transparent 70%)"></div>
+    <div class="relative">
+      <h2 class="syne text-6xl font-extrabold mb-6">Let's Build<br/><span class="gradient-text">Something</span><br/>Together</h2>
+      <p class="text-gray-400 max-w-lg mx-auto mb-10">Ready to elevate your brand? Book a free strategy call and let's talk about your vision.</p>
+      <button class="purple-bg text-white font-semibold px-10 py-5 rounded-2xl hover:opacity-90 transition text-base">Book Free Consultation →</button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/10 py-10">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+      <span class="syne font-extrabold text-lg">Profolio<span class="purple">Pro</span></span>
+      <p class="text-gray-600 text-sm">© 2025 ProfolioPro Creative Agency. All rights reserved.</p>
+      <div class="flex gap-5 text-sm text-gray-600">
+        <a href="#" class="hover:text-white transition">Privacy</a>
+        <a href="#" class="hover:text-white transition">Instagram</a>
+        <a href="#" class="hover:text-white transition">LinkedIn</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
