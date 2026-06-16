@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, Sparkles } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import Link from 'next/link';
 
 export default function Navbar() {
@@ -41,9 +41,12 @@ export default function Navbar() {
       >
         <div className={`flex items-center justify-between px-6 lg:px-8 transition-all duration-500 ${scrolled ? 'py-3' : 'py-5'}`}>
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-colors">
-              <Sparkles className="text-primary w-5 h-5" />
-            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/logo.png"
+              alt="Griffin AI Tech logo"
+              style={{ width: '48px', height: '48px', objectFit: 'contain', borderRadius: '8px' }}
+            />
             <span className="font-display font-normal text-xl tracking-tight text-[#111118]">
               Griffin AI Tech
             </span>
