@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { CheckCircle2, Crown, Zap } from 'lucide-react';
+import { Crown, Zap } from 'lucide-react';
 
 interface Site {
   id: string;
@@ -17,7 +17,7 @@ interface Site {
 const premiumSites: Site[] = [
   {
     id: 'compute',
-    name: 'COMPUTE',
+    name: 'Griffin Ai tech',
     type: 'AI Agents Platform',
     desc: 'Cinematic platform landing page for autonomous AI agents with distributed computing, real-time metrics, and animated particle visualizations.',
     features: ['Blur-word hero animation', 'Canvas particle & dot graphs', 'Live metrics dashboard'],
@@ -60,15 +60,6 @@ const premiumSites: Site[] = [
     url: '/demos/corpedge.html',
     thumb: { bg: '#EEF2FF', accent: '#4F46E5', dark: false },
   },
-  {
-    id: 'cosmicvoyage',
-    name: 'CosmicVoyage',
-    type: 'Space / Cinematic',
-    desc: 'Cinematic space-travel landing page with looping video backgrounds, liquid-glass UI, and word-by-word blur animations.',
-    features: ['Cinematic video crossfade', 'Liquid-glass design system', 'Framer Motion hero animations'],
-    url: '/demos/cosmicvoyage.html',
-    thumb: { bg: '#000000', accent: '#818cf8', dark: true },
-  },
 ];
 
 const standardSites: Site[] = [
@@ -99,12 +90,30 @@ const standardSites: Site[] = [
     url: '/demos/profoliopro.html',
     thumb: { bg: '#0F172A', accent: '#7C3AED', dark: true },
   },
+  {
+    id: 'medvault',
+    name: 'MedVault',
+    type: 'Healthcare Portal',
+    desc: 'Modern healthcare patient portal with appointment booking, medical records, and doctor profiles.',
+    features: ['Appointment scheduling', 'Patient records dashboard', 'Doctor directory & profiles'],
+    url: '/demos/medvault.html',
+    thumb: { bg: '#EFF6FF', accent: '#2563EB', dark: false },
+  },
+  {
+    id: 'luxecommerce',
+    name: 'LuxeCommerce',
+    type: 'Luxury E-Commerce',
+    desc: 'Premium luxury shopping experience with editorial product presentation, curated collections, and immersive visuals.',
+    features: ['Editorial product layouts', 'Curated collections & lookbooks', 'Newsletter & loyalty integration'],
+    url: '/demos/luxecommerce.html',
+    thumb: { bg: '#111111', accent: '#D4AF37', dark: true },
+  },
 ];
 
 function SiteThumbnail({ site }: { site: Site }) {
   return (
     <div
-      className="w-full rounded-t-xl overflow-hidden relative bg-gray-100"
+      className="w-full overflow-hidden relative bg-[#111827] border-b border-[#E5E2DC]"
       style={{ height: '220px' }}
     >
       <iframe
@@ -133,35 +142,27 @@ function SiteCard({ site, tier }: { site: Site; tier: 'premium' | 'standard' }) 
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className="bg-white rounded-2xl border border-gray-100 shadow-sm overflow-hidden hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col"
+      className="sharp-card overflow-hidden hover:border-[rgba(17,17,24,0.15)] transition-all duration-300 flex flex-col"
     >
       <SiteThumbnail site={site} />
 
-      <div className="p-6 flex flex-col flex-1">
-        <div className="flex items-start justify-between gap-3 mb-3">
+      <div className="p-8 flex flex-col flex-1">
+        <div className="flex items-start justify-between gap-3 mb-4">
           <div>
-            <h3 className="font-bold text-gray-900 text-lg leading-tight">{site.name}</h3>
-            <p className="text-xs text-gray-400 mt-0.5">{site.type}</p>
+            <h3 className="font-display text-[1.25rem] text-[#111118] leading-tight">{site.name}</h3>
+            <p className="font-code text-[12px] text-[#6B6A68] mt-1">{site.type}</p>
           </div>
-          {tier === 'premium' ? (
-            <span className="flex items-center gap-1 bg-amber-50 text-amber-600 border border-amber-200 text-xs font-semibold px-2.5 py-1 rounded-full whitespace-nowrap">
-              <Crown className="w-3 h-3" />
-              Premium
-            </span>
-          ) : (
-            <span className="flex items-center gap-1 bg-gray-50 text-gray-500 border border-gray-200 text-xs font-semibold px-2.5 py-1 rounded-full whitespace-nowrap">
-              <Zap className="w-3 h-3" />
-              Standard
-            </span>
-          )}
+          <span className="font-code text-[11px] px-3 py-1 border border-[#E5E2DC] text-[#6B6A68] whitespace-nowrap">
+            {tier === 'premium' ? '⚡ Premium' : '◇ Standard'}
+          </span>
         </div>
 
-        <p className="text-gray-500 text-sm leading-relaxed mb-4">{site.desc}</p>
+        <p className="text-[#6B6A68] text-sm leading-relaxed mb-5">{site.desc}</p>
 
-        <ul className="space-y-2 mb-6 flex-1">
+        <ul className="space-y-2 mb-8 flex-1">
           {site.features.map((f) => (
-            <li key={f} className="flex items-center gap-2 text-sm text-gray-600">
-              <CheckCircle2 className="w-4 h-4 text-primary flex-shrink-0" />
+            <li key={f} className="flex items-center gap-2 text-sm text-[#6B6A68]">
+              <span className="text-primary flex-shrink-0">✓</span>
               {f}
             </li>
           ))}
@@ -171,7 +172,7 @@ function SiteCard({ site, tier }: { site: Site; tier: 'premium' | 'standard' }) 
           href={site.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="w-full btn-primary text-center text-sm py-3 block"
+          className="w-full py-3 bg-[#111118] text-[#FAF9F7] text-sm font-medium text-center hover:opacity-85 transition-opacity block"
         >
           View Live Demo →
         </a>
@@ -186,51 +187,46 @@ export default function WebsiteShowcase() {
   const sites = activeTab === 'premium' ? premiumSites : standardSites;
 
   return (
-    <section className="py-24 bg-gray-50 relative overflow-hidden">
-      {/* Background accents */}
-      <div className="absolute top-0 left-0 w-[40vw] h-[40vw] bg-primary/5 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
-      <div className="absolute bottom-0 right-0 w-[30vw] h-[30vw] bg-primary/5 rounded-full blur-[100px] translate-x-1/2 translate-y-1/2 pointer-events-none" />
-
+    <section className="py-24 bg-[#F3F1ED] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative">
         {/* Header */}
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-5">
-            <Crown className="w-4 h-4 text-primary" />
-            <span className="text-xs font-semibold tracking-wider text-primary uppercase">Our Website Portfolio</span>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-end mb-16">
+          <div>
+            <span className="section-label">Our Website Portfolio</span>
+            <h2 className="font-display leading-[0.9] tracking-[-0.02em]" style={{ fontSize: 'clamp(3rem, 5vw, 5rem)' }}>
+              Websites We<br />
+              <span className="text-[#6B6A68]">Build for Clients.</span>
+            </h2>
           </div>
-          <h2 className="text-4xl lg:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
-            Websites We Build for<br />
-            <span className="text-gradient">Our Clients</span>
-          </h2>
-          <p className="text-gray-500 text-lg max-w-2xl mx-auto">
-            Explore real demos of the websites we create — click any card to experience it live, just like your customers would.
-          </p>
+          <div className="lg:pb-4">
+            <p className="text-[#6B6A68] text-lg leading-relaxed">
+              Explore real demos of the websites we create — click any card to experience it live, just like your customers would.
+            </p>
+          </div>
         </div>
 
         {/* Tab Toggle */}
-        <div className="flex justify-center mb-12">
-          <div className="inline-flex items-center bg-white rounded-xl p-1.5 border border-gray-200 shadow-sm gap-1">
+        <div className="flex mb-10">
+          <div className="inline-flex items-center sharp-card p-1 gap-0">
             <button
               onClick={() => setActiveTab('premium')}
-              className={`flex items-center gap-2 px-6 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 ${
-                activeTab === 'premium'
-                  ? 'bg-primary text-white shadow-md'
-                  : 'text-gray-500 hover:text-gray-700'
-              }`}
+              className={`flex items-center gap-2 px-6 py-2.5 text-sm font-medium transition-all duration-200 ${activeTab === 'premium'
+                ? 'bg-[#111118] text-[#FAF9F7]'
+                : 'text-[#6B6A68] hover:text-[#111118]'
+                }`}
             >
               <Crown className="w-4 h-4" />
-              Premium Websites
+              Premium
             </button>
             <button
               onClick={() => setActiveTab('standard')}
-              className={`flex items-center gap-2 px-6 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200 ${
-                activeTab === 'standard'
-                  ? 'bg-primary text-white shadow-md'
-                  : 'text-gray-500 hover:text-gray-700'
-              }`}
+              className={`flex items-center gap-2 px-6 py-2.5 text-sm font-medium transition-all duration-200 ${activeTab === 'standard'
+                ? 'bg-[#111118] text-[#FAF9F7]'
+                : 'text-[#6B6A68] hover:text-[#111118]'
+                }`}
             >
               <Zap className="w-4 h-4" />
-              Standard Websites
+              Standard
             </button>
           </div>
         </div>
@@ -242,7 +238,7 @@ export default function WebsiteShowcase() {
             initial={{ opacity: 0, y: -6 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: 6 }}
-            className="text-center text-sm text-gray-500 mb-10"
+            className="font-code text-[13px] text-[#6B6A68] mb-10"
           >
             {activeTab === 'premium'
               ? 'High-end, feature-rich websites with advanced animations, integrations, and custom functionality.'
@@ -271,9 +267,9 @@ export default function WebsiteShowcase() {
         </AnimatePresence>
 
         {/* Bottom CTA */}
-        <div className="text-center mt-16">
-          <p className="text-gray-500 mb-4">Want a website like one of these?</p>
-          <a href="#contact" className="btn-primary inline-flex items-center gap-2">
+        <div className="mt-16 pt-10 border-t border-[#E5E2DC] flex flex-col md:flex-row items-center justify-between gap-6">
+          <p className="font-code text-[13px] text-[#6B6A68]">Want a website like one of these?</p>
+          <a href="#contact" className="px-6 py-3 bg-[#111118] text-[#FAF9F7] text-sm font-medium hover:opacity-85 transition-opacity rounded-full">
             Get a Free Quote →
           </a>
         </div>

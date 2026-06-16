@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { Star } from 'lucide-react';
 
 const testimonials = [
   {
@@ -26,45 +25,53 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="py-24 bg-gray-50/50">
+    <section className="py-24 bg-[#F3F1ED]">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-16">
-          <h2 className="text-sm font-semibold tracking-wider text-primary uppercase mb-3">Client Success</h2>
-          <h3 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
-            Trusted by Industry Leaders
-          </h3>
+
+        {/* Header */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-end mb-20">
+          <div>
+            <span className="section-label">Client Success</span>
+          </div>
+          <div className="lg:pb-4">
+            <p className="text-[#6B6A68] text-lg leading-relaxed">
+              Real results from real enterprises. Our clients don't just adopt AI — they lead with it.
+            </p>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-0">
           {testimonials.map((test, index) => (
             <motion.div
               key={test.author}
-              initial={{ opacity: 0, scale: 0.95 }}
+              initial={{ opacity: 0, scale: 0.97 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="glass-card p-8 flex flex-col justify-between h-full"
+              className="sharp-card p-10 flex flex-col justify-between border-b-0 last:border-b md:border-b md:border-r-0 md:last:border-r"
             >
               <div>
-                <div className="flex gap-1 mb-6">
+                <div className="flex gap-1 mb-8">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-primary text-primary" />
+                    <span key={i} className="text-primary text-lg">★</span>
                   ))}
                 </div>
-                <p className="text-gray-700 italic leading-relaxed mb-8">
-                  "{test.quote}"
+                <p className="font-display text-[1.1rem] text-[#111118] leading-relaxed mb-10">
+                  &ldquo;{test.quote}&rdquo;
                 </p>
               </div>
-              <div className="flex items-center gap-4">
-                <img src={test.image} alt={test.author} className="w-12 h-12 rounded-full object-cover" />
+              <div className="flex items-center gap-4 pt-8 border-t border-[#E5E2DC]">
+                <img src={test.image} alt={test.author} className="w-10 h-10 rounded-full object-cover" />
                 <div>
-                  <h4 className="font-semibold text-gray-900">{test.author}</h4>
-                  <p className="text-sm text-gray-500">{test.role}</p>
+                  <h4 className="text-sm font-semibold text-[#111118]">{test.author}</h4>
+                  <p className="font-code text-[12px] text-[#6B6A68]">{test.role}</p>
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
+
       </div>
     </section>
   );

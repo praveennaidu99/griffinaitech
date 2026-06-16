@@ -25,45 +25,59 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? 'glass py-4' : 'bg-transparent py-6'
+      className={`fixed z-50 transition-all duration-500 ${
+        scrolled
+          ? 'top-4 left-4 right-4'
+          : 'top-0 left-0 right-0'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2 group">
-          <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
-            <Sparkles className="text-primary w-5 h-5" />
-          </div>
-          <span className="font-display font-semibold text-xl tracking-tight text-gray-900">
-            Griffin AI Tech
-          </span>
-        </Link>
+      <div
+        className={`transition-all duration-500 ${
+          scrolled
+            ? 'glass rounded-2xl mx-auto'
+            : 'bg-transparent'
+        }`}
+        style={{ maxWidth: scrolled ? '1200px' : 'none', margin: scrolled ? '0 auto' : undefined }}
+      >
+        <div className={`flex items-center justify-between px-6 lg:px-8 transition-all duration-500 ${scrolled ? 'py-3' : 'py-5'}`}>
+          <Link href="/" className="flex items-center gap-2 group">
+            <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center group-hover:bg-primary/30 transition-colors">
+              <Sparkles className="text-primary w-5 h-5" />
+            </div>
+            <span className="font-display font-normal text-xl tracking-tight text-[#111118]">
+              Griffin AI Tech
+            </span>
+          </Link>
 
-        {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-8">
-          <div className="flex gap-6">
-            {links.map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className="text-sm font-medium text-gray-600 hover:text-primary transition-colors"
-              >
-                {link.name}
-              </Link>
-            ))}
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center gap-8">
+            <div className="flex gap-6">
+              {links.map((link) => (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className="text-sm font-medium text-[#6B6A68] hover:text-[#111118] transition-colors"
+                >
+                  {link.name}
+                </Link>
+              ))}
+            </div>
+            <a
+              href="#contact"
+              className="font-medium text-sm px-5 py-2 rounded-full bg-[#111118] text-[#FAF9F7] hover:opacity-85 transition-opacity"
+            >
+              Get Started
+            </a>
           </div>
-          <a href="#contact" className="btn-primary text-sm px-5 py-2.5">
-            Get Started
-          </a>
+
+          {/* Mobile Toggle */}
+          <button
+            className="md:hidden text-[#6B6A68] p-2"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
         </div>
-
-        {/* Mobile Toggle */}
-        <button
-          className="md:hidden text-gray-600 p-2"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
       </div>
 
       {/* Mobile Menu */}
@@ -73,22 +87,22 @@ export default function Navbar() {
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
-            className="absolute top-full left-0 w-full glass border-t border-gray-100 py-4 px-6 md:hidden flex flex-col gap-4 shadow-xl"
+            className="absolute top-full left-0 right-0 mt-2 glass rounded-2xl py-4 px-6 md:hidden flex flex-col gap-4 shadow-xl"
           >
             {links.map((link) => (
               <Link
                 key={link.name}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="text-base font-medium text-gray-800 hover:text-primary block py-2"
+                className="text-base font-medium text-[#111118] hover:text-primary block py-2"
               >
                 {link.name}
               </Link>
             ))}
-            <a 
-              href="#contact" 
+            <a
+              href="#contact"
               onClick={() => setMobileMenuOpen(false)}
-              className="btn-primary text-center w-full mt-2"
+              className="text-center font-medium px-6 py-3 rounded-full bg-[#111118] text-[#FAF9F7] hover:opacity-85 transition-opacity mt-2"
             >
               Get Started
             </a>

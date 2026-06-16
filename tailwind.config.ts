@@ -13,6 +13,8 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["var(--font-inter)", "sans-serif"],
+        display: ["var(--font-serif)", "Georgia", "serif"],
+        'mono-code': ["var(--font-mono-code)", "monospace"],
       },
       boxShadow: {
         'glass': '0 4px 30px rgba(0, 0, 0, 0.05)',

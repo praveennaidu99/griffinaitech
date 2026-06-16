@@ -4,8 +4,10 @@
 
 @layer base {
   :root {
-    --background: #ffffff;
-    --foreground: #111111;
+    --background: #FAF9F7;
+    --foreground: #111118;
+    --text-muted: #6B6A68;
+    --border-color: #E5E2DC;
   }
 
   body {
@@ -17,31 +19,89 @@
     overflow-x: hidden;
   }
 
-  /* Linear-inspired typography */
   h1, h2, h3, h4, h5, h6 {
     letter-spacing: -0.02em;
-    font-weight: 600;
   }
 }
 
 @layer utilities {
-  .glass {
-    @apply bg-white/60 backdrop-blur-md border border-white/20 shadow-glass;
+  .font-display {
+    font-family: var(--font-serif), Georgia, serif;
   }
-  
+
+  .font-code {
+    font-family: var(--font-mono-code), monospace;
+  }
+
+  /* Section label: ── Label Name */
+  .section-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-mono-code), monospace;
+    font-size: 13px;
+    color: #6B6A68;
+    margin-bottom: 24px;
+  }
+
+  .section-label::before {
+    content: '';
+    display: inline-block;
+    width: 48px;
+    height: 1px;
+    background: rgba(17, 17, 24, 0.18);
+    flex-shrink: 0;
+  }
+
+  .glass {
+    background: rgba(250, 249, 247, 0.92);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(0, 0, 0, 0.08);
+  }
+
   .glass-card {
-    @apply bg-white/40 backdrop-blur-lg border border-gray-100/50 shadow-soft transition-all duration-300 hover:shadow-lg hover:-translate-y-1 rounded-2xl;
+    background: #FFFFFF;
+    border: 1px solid var(--border-color);
+    transition: border-color 0.3s, background 0.3s;
+  }
+
+  .glass-card:hover {
+    border-color: rgba(17, 17, 24, 0.20);
+    background: #FDFCFA;
   }
 
   .text-gradient {
-    @apply bg-clip-text text-transparent bg-gradient-to-r from-gray-900 to-gray-500;
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-violet-500 to-purple-600;
+  }
+
+  .text-muted {
+    color: #6B6A68;
   }
 
   .btn-primary {
-    @apply inline-flex items-center justify-center px-6 py-3 rounded-full bg-primary text-white font-medium transition-transform duration-200 hover:scale-105 shadow-md shadow-primary/25;
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-full bg-primary text-white font-medium transition-all duration-200 hover:opacity-90 shadow-md shadow-primary/30;
   }
 
   .btn-secondary {
-    @apply inline-flex items-center justify-center px-6 py-3 rounded-full bg-gray-50 text-gray-900 font-medium transition-colors duration-200 hover:bg-gray-100 border border-gray-200;
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-full font-medium transition-all duration-200;
+    background: transparent;
+    color: #111118;
+    border: 1px solid rgba(17, 17, 24, 0.18);
+  }
+
+  .btn-secondary:hover {
+    background: rgba(17, 17, 24, 0.05);
+  }
+
+  /* Compute-style sharp card */
+  .sharp-card {
+    background: #FFFFFF;
+    border: 1px solid var(--border-color);
+    transition: border-color 0.3s;
+  }
+
+  .sharp-card:hover {
+    border-color: rgba(17, 17, 24, 0.18);
   }
 }

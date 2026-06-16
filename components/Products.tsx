@@ -3,82 +3,157 @@
 import { motion } from 'framer-motion';
 import { Database, ShieldCheck, Dumbbell, Workflow, ArrowRight } from 'lucide-react';
 
-const products = [
+const PRODUCTS = [
   {
     name: 'Griffin Gym',
     tagline: 'AI Training Environment',
-    description: 'A secure, scalable environment to train custom LLMs and specialized AI models on your proprietary enterprise data without risking leakage.',
-    icon: <Dumbbell className="w-6 h-6 text-white" />,
-    color: 'from-purple-500 to-indigo-600'
+    description: 'Train custom LLMs and specialised models on your proprietary enterprise data in a fully isolated, secure environment.',
+    features: ['Custom model fine-tuning', 'Private data isolation', 'Zero leakage guarantee'],
+    Icon: Dumbbell,
+    accent: '#7c3aed',
+    accentBg: 'rgba(124,58,237,0.07)',
+    num: '01',
   },
   {
     name: 'Griffin Drive',
     tagline: 'Intelligent Knowledge Base',
-    description: 'Vector-powered secure storage that allows your team to semantic search, query, and chat with millions of enterprise documents instantly.',
-    icon: <Database className="w-6 h-6 text-white" />,
-    color: 'from-blue-500 to-cyan-600'
+    description: 'Vector-powered semantic search — your team can query, summarise, and extract insights from millions of documents instantly.',
+    features: ['Semantic & keyword search', 'Chat with your documents', 'Role-based access control'],
+    Icon: Database,
+    accent: '#2563eb',
+    accentBg: 'rgba(37,99,235,0.07)',
+    num: '02',
   },
   {
     name: 'Griffin CRM',
     tagline: 'Autonomous Sales Agent',
-    description: 'An AI-native CRM that automatically updates records, drafts outreach, and scores leads based on complex behavioral analysis.',
-    icon: <Workflow className="w-6 h-6 text-white" />,
-    color: 'from-emerald-500 to-teal-600'
+    description: 'An AI-native CRM that auto-updates records, scores leads, and drafts personalised outreach based on real behavioural signals.',
+    features: ['AI lead scoring', 'Auto-drafted outreach', 'Pipeline automation'],
+    Icon: Workflow,
+    accent: '#059669',
+    accentBg: 'rgba(5,150,105,0.07)',
+    num: '03',
   },
   {
-    name: 'Custom Solutions',
-    tagline: 'Tailored to your needs',
-    description: 'Need something specific? Our team of AI engineers can build proprietary models and agents specifically designed for your unique workflow.',
-    icon: <ShieldCheck className="w-6 h-6 text-white" />,
-    color: 'from-gray-700 to-gray-900'
-  }
+    name: 'Custom Build',
+    tagline: 'Tailored to Your Workflow',
+    description: 'Proprietary models and agents engineered from scratch around your unique operational requirements and data architecture.',
+    features: ['Bespoke model architecture', 'Full IP ownership', 'Dedicated engineering team'],
+    Icon: ShieldCheck,
+    accent: '#b45309',
+    accentBg: 'rgba(180,83,9,0.07)',
+    num: '04',
+  },
 ];
 
 export default function Products() {
   return (
-    <section id="products" className="py-24 bg-white relative">
+    <section id="products" className="py-24 bg-[#FAF9F7] relative">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
-          <div className="max-w-2xl">
-            <h2 className="text-sm font-semibold tracking-wider text-primary uppercase mb-3">Enterprise Suite</h2>
-            <h3 className="text-3xl md:text-4xl font-bold text-gray-900 tracking-tight">
-              Powerful Products Built for Scale
-            </h3>
+
+        {/* Header — same 2-col pattern as other sections */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-end mb-16">
+          <div>
+            <span className="section-label">Enterprise Suite</span>
+            <h2
+              className="font-display leading-[0.9] tracking-[-0.02em]"
+              style={{ fontSize: 'clamp(3rem, 5vw, 5.5rem)' }}
+            >
+              Purpose-built<br />
+              <span className="text-[#6B6A68]">AI products.</span>
+            </h2>
           </div>
-          <button className="text-primary font-medium flex items-center gap-2 hover:gap-3 transition-all">
-            View All Products <ArrowRight className="w-4 h-4" />
-          </button>
+          <div className="lg:pb-3">
+            <p className="text-[#6B6A68] text-lg leading-relaxed">
+              Trained on your data, deployed on your terms, owned by you — the enterprise AI stack you actually need.
+            </p>
+          </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {products.map((product, index) => (
+        {/* 2×2 grid — gap-px trick creates clean #E5E2DC dividers */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-[#E5E2DC] border border-[#E5E2DC]">
+          {PRODUCTS.map((product, index) => (
             <motion.div
               key={product.name}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm hover:shadow-xl transition-all duration-300"
+              transition={{ duration: 0.45, delay: index * 0.08, ease: [0.16, 1, 0.3, 1] }}
+              className="group bg-white hover:bg-[#FDFCFA] transition-colors duration-300 p-10 flex flex-col gap-6"
             >
-              <div className="p-8 sm:p-10">
-                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${product.color} flex items-center justify-center mb-8 shadow-lg`}>
-                  {product.icon}
+              {/* Icon + number row */}
+              <div className="flex items-start justify-between">
+                <div
+                  className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0"
+                  style={{ background: product.accentBg }}
+                >
+                  <product.Icon
+                    className="w-6 h-6"
+                    style={{ color: product.accent }}
+                  />
                 </div>
-                <h4 className="text-2xl font-bold text-gray-900 mb-2">{product.name}</h4>
-                <p className="text-sm font-semibold text-primary mb-4">{product.tagline}</p>
-                <p className="text-gray-600 leading-relaxed mb-8">
-                  {product.description}
+                <span className="font-code text-[13px] text-[#6B6A68]">{product.num}</span>
+              </div>
+
+              {/* Name + tagline */}
+              <div>
+                <h4 className="font-display text-[1.6rem] text-[#111118] leading-tight mb-1.5">
+                  {product.name}
+                </h4>
+                <p
+                  className="font-code text-[12px] tracking-wide"
+                  style={{ color: product.accent }}
+                >
+                  {product.tagline}
                 </p>
-                <a href="#contact" className="inline-flex items-center text-sm font-semibold text-gray-900 group-hover:text-primary transition-colors">
-                  Learn more <ArrowRight className="w-4 h-4 ml-1 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+              </div>
+
+              {/* Description */}
+              <p className="text-[#6B6A68] text-sm leading-relaxed">
+                {product.description}
+              </p>
+
+              {/* Features */}
+              <ul className="flex flex-col gap-2.5">
+                {product.features.map((f) => (
+                  <li key={f} className="flex items-center gap-2.5 text-[13px] text-[#6B6A68]">
+                    <span
+                      className="w-1.5 h-1.5 rounded-full flex-shrink-0"
+                      style={{ background: product.accent }}
+                    />
+                    {f}
+                  </li>
+                ))}
+              </ul>
+
+              {/* CTA */}
+              <div className="pt-4 border-t border-[#E5E2DC] mt-auto">
+                <a
+                  href="#contact"
+                  className="inline-flex items-center gap-1.5 font-code text-[13px] text-[#111118] hover:gap-3 transition-all duration-200 group-hover:text-[#111118]"
+                >
+                  Learn more
+                  <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
                 </a>
               </div>
-              
-              {/* Subtle background glow on hover */}
-              <div className={`absolute -bottom-24 -right-24 w-64 h-64 bg-gradient-to-br ${product.color} opacity-0 group-hover:opacity-5 blur-[80px] transition-opacity duration-500 rounded-full`} />
             </motion.div>
           ))}
         </div>
+
+        {/* Bottom row — same as other sections */}
+        <div className="mt-12 pt-8 border-t border-[#E5E2DC] flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <p className="font-code text-[13px] text-[#6B6A68]">
+            All products include SOC 2 compliance, 99.9% uptime SLA, and dedicated support.
+          </p>
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 px-5 py-2.5 bg-[#111118] text-[#FAF9F7] text-sm font-medium hover:opacity-85 transition-opacity"
+          >
+            Get a demo
+            <ArrowRight className="w-4 h-4" />
+          </a>
+        </div>
+
       </div>
     </section>
   );

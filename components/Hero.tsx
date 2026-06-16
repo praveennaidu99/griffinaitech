@@ -1,8 +1,8 @@
 'use client';
 
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { ArrowRight, Play, Sparkles, Bot } from 'lucide-react';
+import { ArrowRight, Play, Bot } from 'lucide-react';
 
 declare module 'framer-motion' {
   interface MotionProps {
@@ -11,21 +11,55 @@ declare module 'framer-motion' {
   }
 }
 
+/* ─── Cycling blur-word animation ──────────────────────── */
+
+const CYCLE_WORDS = ['Works.', 'Scales.', 'Learns.', 'Adapts.'];
+
+function CyclingWord() {
+  const [idx, setIdx] = useState(0);
+  const [animKey, setAnimKey] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setIdx(i => (i + 1) % CYCLE_WORDS.length);
+      setAnimKey(k => k + 1);
+    }, 2500);
+    return () => clearInterval(id);
+  }, []);
+
+  return (
+    <span style={{ display: 'inline' }}>
+      {CYCLE_WORDS[idx].split('').map((ch, i) => (
+        <motion.span
+          key={`${animKey}-${i}`}
+          initial={{ opacity: 0, filter: 'blur(18px)', color: '#7c3aed' }}
+          animate={{ opacity: 1, filter: 'blur(0px)', color: '#111118' }}
+          transition={{ delay: i * 0.045, duration: 0.5, ease: [0, 0, 0.2, 1] }}
+          style={{ display: 'inline-block' }}
+        >
+          {ch}
+        </motion.span>
+      ))}
+    </span>
+  );
+}
+
 /* ─── Types & data ──────────────────────────────────────── */
 
 interface CardData {
   id: string;
   label: string;
   value: string;
+  subtitle: string;
   pos: React.CSSProperties;
   floatDelay: number;
 }
 
 const CARDS: CardData[] = [
-  { id: 'tl', label: 'AI Agents',     value: '150+',  pos: { top: '8%',    left: '-44px' }, floatDelay: 0   },
-  { id: 'tr', label: 'Satisfaction',  value: '98%',   pos: { top: '8%',    right: '-44px' }, floatDelay: 1.0 },
-  { id: 'bl', label: 'Workflows',     value: '2.3M+', pos: { bottom: '18%', left: '-44px' }, floatDelay: 0.5 },
-  { id: 'br', label: 'Uptime',        value: '99.9%', pos: { bottom: '18%', right: '-44px' }, floatDelay: 1.5 },
+  { id: 'tl', label: 'AI Agents',    value: '150+',  subtitle: 'Active deployments',  pos: { top: '10%',    left: '-58px' },  floatDelay: 0   },
+  { id: 'tr', label: 'Satisfaction', value: '98%',   subtitle: 'Client satisfaction', pos: { top: '10%',    right: '-58px' }, floatDelay: 1.0 },
+  { id: 'bl', label: 'Workflows',    value: '2.3M+', subtitle: 'Automated monthly',   pos: { bottom: '22%', left: '-58px' },  floatDelay: 0.5 },
+  { id: 'br', label: 'Uptime',       value: '99.9%', subtitle: 'System reliability',  pos: { bottom: '22%', right: '-58px' }, floatDelay: 1.5 },
 ];
 
 const METRICS = [
@@ -37,12 +71,12 @@ const METRICS = [
 /* ─── Shared glass style ────────────────────────────────── */
 
 const glass: React.CSSProperties = {
-  background: 'rgba(255,255,255,0.95)',
+  background: 'rgba(255,255,255,0.88)',
   backdropFilter: 'blur(16px)',
   WebkitBackdropFilter: 'blur(16px)',
   borderRadius: '24px',
-  border: '1px solid rgba(255,255,255,0.80)',
-  boxShadow: '0 20px 60px rgba(124,58,237,0.12), 0 4px 16px rgba(0,0,0,0.05)',
+  border: '1px solid rgba(0,0,0,0.08)',
+  boxShadow: '0 20px 60px rgba(124,58,237,0.15), 0 4px 16px rgba(0,0,0,0.08)',
 };
 
 /* ─── Floating stat card ────────────────────────────────── */
@@ -71,14 +105,17 @@ function StatCard({ card, entryDelay }: { card: CardData; entryDelay: number }) 
           delay: entryDelay + 0.6 + card.floatDelay,
         },
       }}
-      className="absolute z-20 w-[100px] select-none hidden lg:flex flex-col"
+      className="absolute z-20 w-[116px] select-none hidden lg:flex flex-col"
       style={{ ...card.pos, ...glass, padding: '10px 12px' }}
     >
-      <p className="text-[8.5px] font-semibold text-gray-400 uppercase tracking-wider leading-none mb-1.5">
+      <p className="text-[8.5px] font-semibold text-[#6B6A68] uppercase tracking-wider leading-none mb-1.5">
         {card.label}
       </p>
-      <p className="text-[20px] font-extrabold text-gray-900 leading-none tracking-tight">
+      <p className="text-[20px] font-extrabold text-[#111118] leading-none tracking-tight mb-1">
         {card.value}
+      </p>
+      <p className="text-[9px] text-[#6B6A68] leading-tight">
+        {card.subtitle}
       </p>
     </motion.div>
   );
@@ -102,11 +139,11 @@ function AIAssistantCard() {
       }}
       className="absolute z-30 hidden lg:flex items-start gap-3"
       style={{
-        bottom: '-40px',
-        right: '10%',
-        width: '248px',
+        bottom: '-34px',
+        right: '20px',
+        width: '232px',
         ...glass,
-        padding: '14px 16px',
+        padding: '12px 14px',
       }}
     >
       {/* Griffin avatar */}
@@ -117,10 +154,10 @@ function AIAssistantCard() {
         <Bot className="w-4 h-4 text-white" />
       </div>
       <div>
-        <p className="text-[12.5px] font-bold text-gray-900 leading-none mb-1.5">
+        <p className="text-[12.5px] font-bold text-[#111118] leading-none mb-1.5">
           Hello, I'm Griffin.
         </p>
-        <p className="text-[11px] text-gray-500 leading-snug">
+        <p className="text-[11px] text-[#6B6A68] leading-snug">
           How can I help automate your business today?
         </p>
       </div>
@@ -135,16 +172,19 @@ function MiniCard({ card }: { card: CardData }) {
     <div
       className="rounded-2xl px-4 py-3.5"
       style={{
-        background: 'rgba(255,255,255,0.97)',
-        border: '1px solid rgba(124,58,237,0.10)',
-        boxShadow: '0 2px 12px rgba(124,58,237,0.07)',
+        background: 'rgba(255,255,255,0.92)',
+        border: '1px solid rgba(0,0,0,0.08)',
+        boxShadow: '0 2px 12px rgba(124,58,237,0.12)',
       }}
     >
-      <p className="text-[10px] font-semibold text-gray-400 uppercase tracking-wide mb-1.5 leading-none">
+      <p className="text-[10px] font-semibold text-[#6B6A68] uppercase tracking-wide mb-1.5 leading-none">
         {card.label}
       </p>
-      <p className="text-[1.3rem] font-extrabold text-gray-900 leading-none">
+      <p className="text-[1.3rem] font-extrabold text-[#111118] leading-none mb-1">
         {card.value}
+      </p>
+      <p className="text-[10px] text-[#6B6A68] leading-tight">
+        {card.subtitle}
       </p>
     </div>
   );
@@ -156,12 +196,12 @@ export default function Hero() {
   return (
     <section
       id="home"
-      className="relative flex items-center bg-white"
+      className="relative flex items-center bg-[#FAF9F7]"
       style={{
         overflowX: 'clip',
         minHeight: '100vh',
         backgroundImage:
-          "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M 40 0 L 0 0 0 40' fill='none' stroke='%237c3aed' stroke-width='0.7' opacity='0.03'/%3E%3C/svg%3E\")",
+          "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M 40 0 L 0 0 0 40' fill='none' stroke='%237c3aed' stroke-width='0.7' opacity='0.06'/%3E%3C/svg%3E\")",
       }}
     >
       {/* Ambient page glows */}
@@ -188,23 +228,20 @@ export default function Hero() {
             transition={{ duration: 0.72, ease: [0.16, 1, 0.3, 1] }}
             className="flex flex-col gap-5 items-center text-center lg:items-start lg:text-left"
           >
-            {/* Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-violet-50 border border-violet-200/60">
-              <Sparkles className="w-3.5 h-3.5 text-violet-500" />
-              <span className="text-[11px] font-bold tracking-widest text-violet-600 uppercase">
-                Next-Gen Enterprise AI
-              </span>
-            </div>
+            {/* Label */}
+            <span className="section-label">
+              Next-Gen Enterprise AI
+            </span>
 
             {/* Headline */}
-            <h1 className="text-[1.9rem] sm:text-[2.3rem] lg:text-[2.85rem] font-extrabold text-gray-900 leading-[1.08] tracking-[-0.025em]">
+            <h1 className="font-display text-[2.4rem] sm:text-[3rem] lg:text-[3.6rem] leading-[0.95] tracking-[-0.02em] text-[#111118]">
               Enterprise AI<br />
-              That Works.<br />
-              <span className="text-gradient">Not Just Another<br />Chatbot.</span>
+              That <CyclingWord /><br />
+              <span className="text-[#6B6A68]">Not Just Another<br />Chatbot.</span>
             </h1>
 
             {/* Sub-headline */}
-            <p className="text-[0.9rem] sm:text-[0.95rem] text-gray-500 leading-relaxed max-w-[400px] lg:max-w-[360px]">
+            <p className="text-[0.9rem] sm:text-[0.95rem] text-[#6B6A68] leading-relaxed max-w-[400px] lg:max-w-[360px]">
               Transform your operations with intelligent AI systems.
               Automate workflows, gain insights, and scale with confidence.
             </p>
@@ -222,19 +259,19 @@ export default function Hero() {
             </div>
 
             {/* Metrics row */}
-            <div className="flex items-center pt-5 border-t border-gray-100 mt-1 w-full justify-center lg:justify-start">
+            <div className="flex items-center pt-5 border-t border-black/10 mt-1 w-full justify-center lg:justify-start">
               {METRICS.map((m, i) => (
                 <React.Fragment key={m.label}>
                   <div className="flex flex-col gap-0.5">
-                    <span className="text-[1.2rem] sm:text-[1.35rem] font-extrabold text-gray-900 leading-none tracking-tight">
+                    <span className="text-[1.2rem] sm:text-[1.35rem] font-extrabold text-[#111118] leading-none tracking-tight">
                       {m.value}
                     </span>
-                    <span className="text-[10px] sm:text-[11px] text-gray-400 font-medium whitespace-nowrap">
+                    <span className="text-[10px] sm:text-[11px] text-[#6B6A68] font-medium whitespace-nowrap">
                       {m.label}
                     </span>
                   </div>
                   {i < METRICS.length - 1 && (
-                    <div className="w-px h-7 bg-gray-200 mx-3 sm:mx-5 flex-shrink-0" />
+                    <div className="w-px h-7 bg-black/12 mx-3 sm:mx-5 flex-shrink-0" />
                   )}
                 </React.Fragment>
               ))}
@@ -250,7 +287,7 @@ export default function Hero() {
             initial={{ opacity: 0, x: 20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.85, ease: [0.16, 1, 0.3, 1], delay: 0.14 }}
-            className="flex items-center justify-center py-6 lg:pt-10 lg:pb-20"
+            className="flex items-center justify-center py-6 lg:pt-10 lg:pb-14 lg:px-10"
           >
             {/*
               Video wrapper — the single position:relative reference for all
