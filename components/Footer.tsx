@@ -1,6 +1,6 @@
 'use client';
 
-import { Sparkles } from 'lucide-react';
+
 import Link from 'next/link';
 
 export default function Footer() {
@@ -13,9 +13,12 @@ export default function Footer() {
             {/* Brand */}
             <div className="col-span-2">
               <Link href="/" className="inline-flex items-center gap-2 mb-5">
-                <div className="w-8 h-8 rounded-lg bg-primary/20 flex items-center justify-center">
-                  <Sparkles className="text-primary w-5 h-5" />
-                </div>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/logo.png"
+                  alt="Griffin AI Tech logo"
+                  style={{ width: '32px', height: '32px', objectFit: 'contain', borderRadius: '6px' }}
+                />
                 <span className="font-display text-xl text-[#e8edf5]">
                   Griffin AI Tech
                 </span>
